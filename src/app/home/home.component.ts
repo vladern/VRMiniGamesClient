@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  title = 'Welcome to Ignite UI for Angular!';
+  title = 'Welcome to First Virtual Reality platform form Mini Games!';
   constructor() { }
 
   ngOnInit() {
