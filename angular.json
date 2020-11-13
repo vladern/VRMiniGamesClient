@@ -3,21 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "vrminigames": {
-    "projectType": "application",
-    "schematics": {
-      "@schematics/angular:component": {
-      "style": "scss"
-      }
-    },
-    "root": "",
-    "sourceRoot": "src",
-    "prefix": "app",
+    "vr-mini-games-client": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/vrminigames",
+            "outputPath": "dist/vr-mini-games-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,14 +24,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
-            "scripts": ["./node_modules/hammerjs/hammer.min.js"]
+            "scripts": []
           },
           "configurations": {
-            "es5": {
-                "tsConfig": "tsconfig-es5.app.json"
-            },
             "production": {
               "fileReplacements": [
                 {
@@ -46,7 +39,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -54,8 +46,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "5mb",
-                  "maximumError": "10mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -69,21 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "vrminigames:build"
+            "browserTarget": "vr-mini-games-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vrminigames:build:production"
-            },
-            "es5": {
-                "browserTarget": "vrminigames:build:es5"
+              "browserTarget": "vr-mini-games-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vrminigames:build"
+            "browserTarget": "vr-mini-games-client:build"
           }
         },
         "test": {
@@ -93,14 +82,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": ["./node_modules/hammerjs/hammer.min.js"],
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ]
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
           }
         },
         "lint": {
@@ -120,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "vrminigames:serve"
+            "devServerTarget": "vr-mini-games-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "vrminigames:serve:production"
+              "devServerTarget": "vr-mini-games-client:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "vrminigames"
+  "defaultProject": "vr-mini-games-client"
 }

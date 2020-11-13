@@ -1,29 +1,31 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { IgxNavigationDrawerModule, IgxNavbarModule, IgxLayoutModule, IgxRippleModule } from 'igniteui-angular';
-import { AuthenticationModule } from './authentication';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
-        RouterTestingModule,
-        IgxNavigationDrawerModule,
-        AuthenticationModule,
-        IgxNavbarModule,
-        IgxLayoutModule,
-        IgxRippleModule
-      ],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
     }).compileComponents();
-  }));
-  it('should create the app', async(() => {
+  });
+
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  }));
+  });
+
+  it(`should have as title 'vr-mini-games-client'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('vr-mini-games-client');
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.content span').textContent).toContain('vr-mini-games-client app is running!');
+  });
 });
