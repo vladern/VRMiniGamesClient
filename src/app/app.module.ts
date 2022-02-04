@@ -1,16 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MaterialModule } from './modules/material-module';
+import { MaterialModule } from './UI/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeModule } from './modules/home/home.module';
+import { HomeModule } from './UI/view-models/home/home.module';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGateway } from './domain/models/login/gateway/login.gateway';
+import { LoginApiService } from './infrastructure/driven-adapter/login-api/login-api.service';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
+      import('./UI/view-models/home/home.module').then((m) => m.HomeModule),
   },
   // { path: '', redirectTo: '/home' },
   // { path: '**', component: PageNotFoundComponent },
@@ -25,7 +27,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forChild(routes)
   ],
-  providers: [],
+  providers: [{ provide: LoginGateway, useClass: LoginApiService}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
