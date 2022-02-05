@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginResponse } from '../models/login/login.model';
+import { LoginResponse } from '../models/login/login-response.model';
 import { LoginGateway } from '../models/login/gateway/login.gateway';
 
 @Injectable({

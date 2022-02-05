@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoginResponse } from 'src/app/domain/models/login/login.model';
+import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
 import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
 import { Observable } from 'rxjs';
 
