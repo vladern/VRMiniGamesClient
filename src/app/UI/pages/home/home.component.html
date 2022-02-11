@@ -1,1 +1,20 @@
-<h1>Minigames Platform</h1>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="icon" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{ title }}</span>
+    <span class="spacer"></span>
+    <button mat-button>
+      <mat-icon>account_circle</mat-icon>
+      <span class="font">Sign in</span>
+    </button>
+  </mat-toolbar>
+  <mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="font">Home</span>
+      </button>
+    </mat-drawer>
+    <router-outlet></router-outlet>
+  </mat-drawer-container>

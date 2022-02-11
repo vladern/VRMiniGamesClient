@@ -14,7 +14,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./UI/pages/home/home.module').then((m) => m.HomeModule),
   },
-  // { path: '', redirectTo: '/home' },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./UI/pages/login/login.module').then((m) => m.LoginModule),
+  },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent },
 ];
 

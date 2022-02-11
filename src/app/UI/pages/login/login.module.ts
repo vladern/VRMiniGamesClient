@@ -16,7 +16,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ]
 })
 export class LoginModule { }
