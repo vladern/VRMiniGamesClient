@@ -11,10 +11,7 @@
   </mat-toolbar>
   <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
-      <button mat-button>
-        <mat-icon>home</mat-icon>
-        <span class="font">Home</span>
-      </button>
+      <vrmg-button [text]="'Home'" [icon]="'home'"></vrmg-button>
     </mat-drawer>
     <router-outlet></router-outlet>
   </mat-drawer-container>

@@ -7,6 +7,7 @@ import { HomeModule } from './UI/pages/home/home.module';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginGateway } from './domain/models/login/gateway/login.gateway';
 import { LoginApiService } from './infrastructure/driven-adapter/login-api/login-api.service';
+import { ButtonComponent } from './UI/common/components/atoms/button/button.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ButtonComponent],
   imports: [
     HomeModule,
     BrowserModule,
