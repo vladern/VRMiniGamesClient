@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../../material-module';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })

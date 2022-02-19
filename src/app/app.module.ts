@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MaterialModule } from './UI/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './UI/pages/home/home.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -28,7 +27,6 @@ const routes: Routes = [
   imports: [
     HomeModule,
     BrowserModule,
-    MaterialModule,
     BrowserAnimationsModule,
     RouterModule.forChild(routes)
   ],
