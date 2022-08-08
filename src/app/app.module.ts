@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -6,6 +5,7 @@ import { HomeModule } from './UI/pages/home/home.module';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginGateway } from './domain/models/login/gateway/login.gateway';
 import { LoginApiService } from './infrastructure/driven-adapter/login-api/login-api.service';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
