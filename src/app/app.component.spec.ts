@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { LoginGateway } from './domain/models/login/gateway/login.gateway';
+import { LoginApiService } from './infrastructure/driven-adapter/login-api/login-api.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +9,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [{ provide: LoginGateway, useClass: LoginApiService}],
     }).compileComponents();
   });
 
@@ -14,11 +17,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'VR Mini Games'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('VR Mini Games');
   });
 });
