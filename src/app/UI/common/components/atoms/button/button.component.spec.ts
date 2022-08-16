@@ -34,10 +34,10 @@ describe('ButtonComponent', () => {
     expect(buttonElement.textContent).toBe('Hello world!');
   });
   
-  fit('button icon should be "home"', () => {
+  it('button icon should be "home"', () => {
     const buttonDebugElement = fixture.debugElement.query(By.css('.qa-button-icon'));
     const buttonElement = buttonDebugElement.nativeElement;
-    component.icon = "menu";
+    component.icon = "home";
     fixture.detectChanges();
     expect(buttonElement.textContent).toBe('home');
   });
