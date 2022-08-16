@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import * as fromComponents from './components/index';
+import * as components from './components/index';
 import { MaterialModule } from '../material-module';
 
 @NgModule({
-  declarations: [...fromComponents.components],
+  declarations: [...components.index],
   imports: [
     CommonModule,
     MaterialModule,
   ],
-  exports: [...fromComponents.components],
+  exports: [...components.index],
 })
 export class CommonUIModule { }

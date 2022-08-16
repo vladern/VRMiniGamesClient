@@ -4,6 +4,7 @@ import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../../material-module';
 import { FormsModule } from '@angular/forms';
+import { CommonUIModule } from '../../common/common.module';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
     CommonModule,
     MaterialModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    CommonUIModule,
   ]
 })
 export class LoginModule { }
