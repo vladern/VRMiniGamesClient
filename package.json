@@ -8,6 +8,7 @@
     "test": "ng test",
     "test-with-coverage": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
+    "stylelint": "npx stylelint \"**/*.scss\"",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -42,6 +43,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
+    "stylelint": "^14.10.0",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^5.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.5.5"

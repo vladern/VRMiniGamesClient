@@ -1,8 +1,9 @@
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
-html, body {
+html,
+body {
   position: fixed;
-  top: 0; 
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -10,4 +11,3 @@ html, body {
   padding: 0;
   height: 100%;
 }
-
