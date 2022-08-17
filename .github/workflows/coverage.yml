@@ -34,5 +34,5 @@ jobs:
       - name: Coverage badge
         uses: demyanets/angular-coverage-badges-action@v1
         with:
-          coverage-summary-path: coverage/vr-mini-games-client/coverage-summary.json
+          coverage-summary-path: /home/runner/work/VRMiniGamesClient/VRMiniGamesClient/badges/vr-mini-games-client/coverage-summary.json
           github_token: ${{ secrets.GITHUB_TOKEN }}
