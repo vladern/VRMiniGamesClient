@@ -1,5 +1,11 @@
 # VrMiniGamesClient
 
+![Coverage](./badges/vr-mini-games-client/coverage.svg)
+![Coverage](./badges/vr-mini-games-client/coverage-branches.svg)
+![Coverage](./badges/vr-mini-games-client/coverage-functions.svg)
+![Coverage](./badges/vr-mini-games-client/coverage-lines.svg)
+![Coverage](./badges/vr-mini-games-client/coverage-statements.svg)
+
 ## Description
 Platform where you can find various virtual reality games directly from your browser, without installation or downloading.
 
