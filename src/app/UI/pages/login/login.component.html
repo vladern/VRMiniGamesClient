@@ -1,2 +1,23 @@
-<p>login works!!</p>
-
+<form class="form" [formGroup]="loginFormGroup" (ngSubmit)="submit(loginFormGroup.value)">
+  <mat-form-field class="full-width">
+    <mat-label>Email</mat-label>
+    <input
+      class="qa-email-input"
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Ex. pat@example.com"
+    />
+  </mat-form-field>
+  <mat-form-field class="full-width" >
+    <mat-label>Password</mat-label>
+    <input
+      class="qa-password-input"
+      type="password"
+      matInput
+      formControlName="password"
+      placeholder="password"
+    />
+  </mat-form-field>
+  <vrmg-button class="qa-submit-button" text="submit" type="submit"></vrmg-button>
+</form>

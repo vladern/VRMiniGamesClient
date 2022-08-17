@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { LoginUseCase } from 'src/app/domain/use-cases/login.use-case';
+
 
 @Component({
   selector: 'vrmg-login',
@@ -10,7 +14,10 @@ import { LoginUseCase } from 'src/app/domain/use-cases/login.use-case';
 })
 export class LoginComponent implements OnInit {
 
-  public loginFormGroup$: Observable<FormGroup>;
+  public loginFormGroup: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.email]),
+    password: new FormControl('', [Validators.nullValidator])
+  });
 
   constructor(
     private readonly loginUseCase: LoginUseCase

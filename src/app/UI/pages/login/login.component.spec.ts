@@ -1,27 +1,93 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
 import { LoginApiService } from 'src/app/infrastructure/driven-adapter/login-api/login-api.service';
+import { CommonUIModule } from '../../common/common.module';
+import { MaterialModule } from '../../material-module';
 
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let page: LoginPage;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        CommonModule,
+        MaterialModule,
+        FormsModule,
+        CommonUIModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule
+      ],
       declarations: [LoginComponent],
-      providers: [{ provide: LoginGateway, useClass: LoginApiService}],
+      providers: [{ provide: LoginGateway, useClass: LoginApiService }],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    page = new LoginPage(fixture);
+
+    // 1st change detection triggers ngOnInit which gets a hero
     fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      // 2nd change detection displays the async-fetched hero
+      fixture.detectChanges();
+    });
   });
+
+  class LoginPage {
+    get submitBtn() {
+      return this.query<HTMLButtonElement>('.qa-submit-button button');
+    }
+    get emailInput() {
+      return this.query<HTMLInputElement>('.qa-email-input');
+    }
+    get passwordInput() {
+      return this.query<HTMLInputElement>('.qa-password-input');
+    }
+
+    submitSpy: jasmine.Spy;
+
+    constructor(someFixture: ComponentFixture<LoginComponent>) {
+      // spy on component's `submit()` method
+      const someComponent = someFixture.componentInstance;
+      this.submitSpy = spyOn(someComponent, 'submit').and.callThrough();
+    }
+
+    //// query helpers ////
+    private query<T>(selector: string): T {
+      return fixture.nativeElement.querySelector(selector);
+    }
+  }
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('As user I want to login with my email and password data', fakeAsync(() => {
+    const expectedLoginFormValue = {
+      email: 'test@example.com',
+      password: 'password',
+    };
+    page.emailInput.value = expectedLoginFormValue.email;
+    page.emailInput.dispatchEvent(new Event('input'));
+    page.passwordInput.value = expectedLoginFormValue.password;
+    page.passwordInput.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    page.submitBtn.click();
+    tick();
+    expect(page.submitSpy).toHaveBeenCalledOnceWith(expectedLoginFormValue);
+  }));
 });

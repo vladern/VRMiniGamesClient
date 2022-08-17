@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../../material-module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonUIModule } from '../../common/common.module';
 
 const routes: Routes = [
@@ -21,6 +21,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes),
     CommonUIModule,
+    ReactiveFormsModule,
   ]
 })
 export class LoginModule { }
