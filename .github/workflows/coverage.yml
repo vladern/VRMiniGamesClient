@@ -1,62 +1,39 @@
-# This workflow will do a clean install of node dependencies and run tests
-
-name: test
-
+name: Build
 on:
   push:
-    branches:
-      - '**'
-
   pull_request:
     branches:
       - master
-      - develop
 
 jobs:
-  test:
-
+  build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v1
 
-    - run: npm ci
-    - run: npm run test:ci
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: tests
-        path: tests/
-    - name: Upload coverage data
-      uses: actions/upload-artifact@v2
-      with:
-        name: coverage
-        path: coverage/
-    - name: Upload 'coverage-summary.json'
-      uses: actions/upload-artifact@v2
-      with:
-        name: coverage-summary.json
-        path: coverage/stslib/coverage-summary.json
-    - name: Comment test coverage on commit
-      uses: jacobbowdoin/comment-test-coverage@1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        path: coverage/stslib/coverage-summary.json
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    # Coverage badges will be updated on any branch except protected
-    # branches 'develop' and 'master' and on a pull requests
-    - name: Test angular action
-      uses:  demyanets/angular-coverage-badges-action@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        coverage-summary-path: coverage/stslib/coverage-summary.json
-        protected-branches: '["master",  "develop"]'
-        write-debug-logs: true
+      - name: Run tests & linter
+        run: |
+          npm ci
+          npm run test:prod
+          npm run lint
+      - name: Coverage badge
+        uses: demyanets/angular-coverage-badges-action@v1
+        with:
+          coverage-summary-path: coverage/vr-mini-games-client/coverage-summary.json
+          github_token: ${{ secrets.GITHUB_TOKEN }}
