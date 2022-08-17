@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:ci": "ng test --no-watch --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI",
+    "test:coverage": "ng test --no-watch --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "stylelint": "npx stylelint \"**/*.scss\"",
     "e2e": "ng e2e"
