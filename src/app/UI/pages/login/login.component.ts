@@ -12,7 +12,7 @@ import { LoginUseCase } from 'src/app/domain/use-cases/login.use-case';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   public loginFormGroup: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email]),
@@ -22,9 +22,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private readonly loginUseCase: LoginUseCase
   ) { }
-
-  ngOnInit(): void {
-  }
 
   public submit({email, password}): void {
     this.loginUseCase.login(email, password).subscribe((res) => {
