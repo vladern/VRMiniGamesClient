@@ -32,6 +32,11 @@ module.exports = function (config) {
         flags: ["--no-sandbox"],
       },
     },
+    coverageIstanbulReporter: {
+      dir: require('path').join(__dirname, '../../coverage'),
+      reports: ['html', 'lcovonly', 'text-summary', 'json-summary'],
+      fixWebpackSourcePaths: true
+    },
     singleRun: false,
     restartOnFileChange: true,
   });
