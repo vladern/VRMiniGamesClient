@@ -31,6 +31,7 @@ jobs:
         run: |
           npm ci
           npm run test:coverage
+          ls
       - name: Coverage badge
         uses: demyanets/angular-coverage-badges-action@v1
         with:
