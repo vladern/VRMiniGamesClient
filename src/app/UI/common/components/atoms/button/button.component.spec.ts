@@ -41,4 +41,12 @@ describe('ButtonComponent', () => {
     fixture.detectChanges();
     expect(buttonElement.textContent).toBe('home');
   });
+
+  it('button type should be "submit"', () => {
+    const buttonDebugElement = fixture.debugElement.query(By.css('button'));
+    const buttonElement = buttonDebugElement.nativeElement;
+    component.type = "submit";
+    fixture.detectChanges();
+    expect(buttonElement.attributes[3].nodeValue).toBe("submit");
+  });
 });
