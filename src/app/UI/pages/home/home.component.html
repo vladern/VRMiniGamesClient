@@ -1,13 +1,8 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button class="icon" (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
+    <vrmg-button icon="menu" (click)="drawer.toggle()"></vrmg-button>
     <span>{{ title }}</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="/login">
-      <mat-icon>account_circle</mat-icon>
-      <span class="font">Sign in</span>
-    </button>
+    <vrmg-button icon="account_circle" routerLink="/login"></vrmg-button>
 </mat-toolbar>
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
