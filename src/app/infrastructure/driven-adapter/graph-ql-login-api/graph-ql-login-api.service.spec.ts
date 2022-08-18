@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoginApiService } from './login-api.service';
+import { GraphQLLoginApiService } from './graph-ql-login-api.service';
 
 describe('LiginApiService', () => {
-  let service: LoginApiService;
+  let service: GraphQLLoginApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LoginApiService);
+    service = TestBed.inject(GraphQLLoginApiService);
   });
 
   it('should be created', () => {

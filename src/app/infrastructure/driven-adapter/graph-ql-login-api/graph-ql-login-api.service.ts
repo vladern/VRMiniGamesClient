@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginApiService extends LoginGateway {
+export class GraphQLLoginApiService extends LoginGateway {
 
   constructor() {
     super();

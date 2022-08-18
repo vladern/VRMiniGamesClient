@@ -8,7 +8,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
-import { LoginApiService } from 'src/app/infrastructure/driven-adapter/login-api/login-api.service';
+import { GraphQLLoginApiService } from 'src/app/infrastructure/driven-adapter/graph-ql-login-api/graph-ql-login-api.service';
 import { CommonUIModule } from '../../common/common.module';
 import { MaterialModule } from '../../material-module';
 
@@ -30,7 +30,7 @@ describe('LoginComponent', () => {
         BrowserAnimationsModule
       ],
       declarations: [LoginComponent],
-      providers: [{ provide: LoginGateway, useClass: LoginApiService }],
+      providers: [{ provide: LoginGateway, useClass: GraphQLLoginApiService }],
     }).compileComponents();
   });
 

@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './UI/pages/home/home.module';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginGateway } from './domain/models/login/gateway/login.gateway';
-import { LoginApiService } from './infrastructure/driven-adapter/login-api/login-api.service';
+import { GraphQLLoginApiService } from './infrastructure/driven-adapter/graph-ql-login-api/graph-ql-login-api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,7 +34,7 @@ const routes: Routes = [
     GraphQLModule,
     HttpClientModule
   ],
-  providers: [{ provide: LoginGateway, useClass: LoginApiService}],
+  providers: [{ provide: LoginGateway, useClass: GraphQLLoginApiService}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
