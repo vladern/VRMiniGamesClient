@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import {
   ComponentFixture,
   fakeAsync,
@@ -7,17 +8,22 @@ import {
 } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Observable } from 'rxjs';
 import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
-import { GraphQLLoginApiService } from 'src/app/infrastructure/driven-adapter/graph-ql-login-api/graph-ql-login-api.service';
+import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
+import { GraphQLModule } from 'src/app/graphql.module';
 import { CommonUIModule } from '../../common/common.module';
 import { MaterialModule } from '../../material-module';
-
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let page: LoginPage;
+  const loginUseCaseMock = {
+    login: () =>
+      new Observable<LoginResponse>((r) => r.next({ token: 'aaaaa' })),
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,10 +33,12 @@ describe('LoginComponent', () => {
         FormsModule,
         CommonUIModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        GraphQLModule,
+        HttpClientModule,
       ],
       declarations: [LoginComponent],
-      providers: [{ provide: LoginGateway, useClass: GraphQLLoginApiService }],
+      providers: [{ provide: LoginGateway, useValue: loginUseCaseMock }],
     }).compileComponents();
   });
 
@@ -59,6 +67,7 @@ describe('LoginComponent', () => {
     }
 
     submitSpy: jasmine.Spy;
+    loginUseCaseSpy: jasmine.Spy;
 
     constructor(someFixture: ComponentFixture<LoginComponent>) {
       // spy on component's `submit()` method
