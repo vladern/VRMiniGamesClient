@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginGateway } from './domain/models/login/gateway/login.gateway';
 import { LoginApiService } from './infrastructure/driven-adapter/login-api/login-api.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -28,7 +30,9 @@ const routes: Routes = [
     HomeModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [{ provide: LoginGateway, useClass: LoginApiService}],
   bootstrap: [AppComponent],
