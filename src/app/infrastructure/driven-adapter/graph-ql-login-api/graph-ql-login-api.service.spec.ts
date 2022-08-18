@@ -5,7 +5,7 @@ import {
 } from 'apollo-angular/testing';
 import { GraphQLLoginApiService } from './graph-ql-login-api.service';
 
-fdescribe('LiginApiService', () => {
+describe('LiginApiService', () => {
   let service: GraphQLLoginApiService;
   let controller: ApolloTestingController;
 
