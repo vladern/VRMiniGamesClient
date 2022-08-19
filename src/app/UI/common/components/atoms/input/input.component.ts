@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, ViewChild } from '@angular/core';
-import { DefaultValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, DefaultValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'vrmg-input',
@@ -13,7 +13,7 @@ import { DefaultValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class InputComponent {
+export class InputComponent implements ControlValueAccessor {
   @ViewChild(DefaultValueAccessor) valueAccessor: DefaultValueAccessor;
   @Input() label: string;
   @Input() type: string;
