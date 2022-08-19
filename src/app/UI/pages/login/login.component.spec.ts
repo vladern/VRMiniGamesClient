@@ -73,6 +73,7 @@ describe('LoginComponent', () => {
       // spy on component's `submit()` method
       const someComponent = someFixture.componentInstance;
       this.submitSpy = spyOn(someComponent, 'submit').and.callThrough();
+      this.loginUseCaseSpy = spyOn(loginUseCaseMock, 'login').and.callThrough();
     }
 
     //// query helpers ////
@@ -98,5 +99,6 @@ describe('LoginComponent', () => {
     page.submitBtn.click();
     tick();
     expect(page.submitSpy).toHaveBeenCalledOnceWith(expectedLoginFormValue);
+    expect(page.loginUseCaseSpy).toHaveBeenCalledOnceWith(expectedLoginFormValue.email, expectedLoginFormValue.password);
   }));
 });
