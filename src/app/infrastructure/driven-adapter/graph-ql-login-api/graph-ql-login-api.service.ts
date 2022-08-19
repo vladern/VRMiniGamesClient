@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class GraphQLLoginApiService extends LoginGateway {
   public loginQuery = gql`
-    query login($data: LoginInput) {
+    query login($data: LoginInput!) {
       login(data: $data) {
         token
       }

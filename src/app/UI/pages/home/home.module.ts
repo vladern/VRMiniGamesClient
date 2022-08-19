@@ -5,8 +5,8 @@ import { MaterialModule } from '../../material-module';
 import { CommonUIModule } from '../../common/common.module';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: '',   redirectTo: '/', pathMatch: 'full' }
+  { path: 'home', component: HomeComponent },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

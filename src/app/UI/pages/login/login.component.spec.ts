@@ -8,6 +8,7 @@ import {
 } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
 import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
@@ -24,6 +25,7 @@ describe('LoginComponent', () => {
     login: () =>
       new Observable<LoginResponse>((r) => r.next({ token: 'aaaaa' })),
   };
+  const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,7 +40,10 @@ describe('LoginComponent', () => {
         HttpClientModule,
       ],
       declarations: [LoginComponent],
-      providers: [{ provide: LoginGateway, useValue: loginUseCaseMock }],
+      providers: [
+        { provide: LoginGateway, useValue: loginUseCaseMock },
+        { provide: Router, useValue: routerSpy },
+      ],
     }).compileComponents();
   });
 
@@ -68,6 +73,7 @@ describe('LoginComponent', () => {
 
     submitSpy: jasmine.Spy;
     loginUseCaseSpy: jasmine.Spy;
+    routerSpy = routerSpy;
 
     constructor(someFixture: ComponentFixture<LoginComponent>) {
       // spy on component's `submit()` method
@@ -99,6 +105,26 @@ describe('LoginComponent', () => {
     page.submitBtn.click();
     tick();
     expect(page.submitSpy).toHaveBeenCalledOnceWith(expectedLoginFormValue);
-    expect(page.loginUseCaseSpy).toHaveBeenCalledOnceWith(expectedLoginFormValue.email, expectedLoginFormValue.password);
+    expect(page.loginUseCaseSpy).toHaveBeenCalledOnceWith(
+      expectedLoginFormValue.email,
+      expectedLoginFormValue.password
+    );
+  }));
+
+  it('As user I want to be redirected to home page if my login credentials are valid', fakeAsync(() => {
+    const expectedLoginFormValue = {
+      email: 'test@example.com',
+      password: 'password',
+    };
+    page.emailInput.value = expectedLoginFormValue.email;
+    page.emailInput.dispatchEvent(new Event('input'));
+    page.passwordInput.value = expectedLoginFormValue.password;
+    page.passwordInput.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    page.submitBtn.click();
+    tick();
+    const spy = routerSpy.navigateByUrl as jasmine.Spy;
+    const navArgs = spy.calls.first().args[0];
+    expect(navArgs).withContext('should nav to home page').toBe('/home');
   }));
 });

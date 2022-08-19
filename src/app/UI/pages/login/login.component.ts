@@ -4,6 +4,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginUseCase } from 'src/app/domain/use-cases/login.use-case';
 
 
@@ -20,17 +21,25 @@ export class LoginComponent {
   });
 
   constructor(
-    private readonly loginUseCase: LoginUseCase
+    private readonly loginUseCase: LoginUseCase,
+    private router: Router,
   ) { }
 
   public submit({email, password}): void {
     this.loginUseCase.login(email, password).subscribe((res) => {
       // TODO: save token in auth cookie
       const tokent = res.token;
+      this.gotoHome();
     },
     (error) => {
       // TODO: manage errors like wrong password
+      console.error(error);
     });
+  }
+
+  public gotoHome() {
+    const url = `/home`;
+    this.router.navigateByUrl(url);
   }
 
 }
