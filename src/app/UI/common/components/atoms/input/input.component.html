@@ -5,6 +5,7 @@
     class="qa-input"
     type={{type}}
     placeholder={{placeholder}}
+    [value]="value"
     (change)="onValueChange($event.target.value)"
   />
 </mat-form-field>

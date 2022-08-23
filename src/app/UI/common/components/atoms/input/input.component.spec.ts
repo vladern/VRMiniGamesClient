@@ -80,4 +80,15 @@ describe('InputComponent', () => {
     emailInput.dispatchEvent(new Event('change'));
     fixture.detectChanges();
   });
+
+  it('input value should be "test@example.com"', () => {
+    const expectedValue = 'test@example.com';
+    component.label = 'email';
+    component.placeholder = 'test@example.com';
+    component.value = 'test@example.com';
+    fixture.detectChanges();
+    const inputDebugElement = fixture.debugElement.query(By.css('input'));
+    const inputElement = inputDebugElement.nativeElement;
+    expect(inputElement.value).toBe(expectedValue);
+  });
 });

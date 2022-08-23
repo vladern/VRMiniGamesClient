@@ -18,6 +18,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() type: string;
   @Input() placeholder: string;
+  @Input() value: string | number;
   @Output() valueChange: EventEmitter<string | number> = new EventEmitter();
 
   constructor() { }
