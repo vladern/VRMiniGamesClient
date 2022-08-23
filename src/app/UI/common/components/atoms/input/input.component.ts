@@ -14,7 +14,6 @@ import { ControlValueAccessor, DefaultValueAccessor, NG_VALUE_ACCESSOR } from '@
   ]
 })
 export class InputComponent implements ControlValueAccessor {
-  @ViewChild(DefaultValueAccessor) valueAccessor: DefaultValueAccessor;
   @Input() label: string;
   @Input() type: string;
   @Input() placeholder: string;
@@ -28,19 +27,18 @@ export class InputComponent implements ControlValueAccessor {
   }
 
 
-  writeValue(obj: any) {
-    this.valueAccessor.writeValue(obj);
+  onChange = event => {};
+  onTouched = () => {};
+
+  writeValue(value: any) {
+    this.value = value;
   }
 
   registerOnChange(fn: any) {
-    this.valueAccessor.registerOnChange(fn);
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: any) {
-    this.valueAccessor.registerOnTouched(fn);
-  }
-
-  setDisabledState(isDisabled: boolean) {
-    this.valueAccessor.setDisabledState(isDisabled);
+    this.onTouched = fn;
   }
 }
