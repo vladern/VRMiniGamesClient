@@ -63,4 +63,21 @@ describe('InputComponent', () => {
     fixture.detectChanges();
     expect(inputElement.attributes.getNamedItem('ng-reflect-placeholder').nodeValue).toBe('test@example.es');
   });
+
+  it('should emit value output', (done: DoneFn) => {
+    const expectedValue = 'test@example.com';
+    component.label = 'email';
+    component.type = 'email';
+    component.placeholder = 'test@example.com';
+    component.valueChange.subscribe(value => {
+      expect(value).toBe(expectedValue);
+      done();
+    });
+    fixture.detectChanges();
+    const hostElement: HTMLElement = fixture.nativeElement;
+    const emailInput: HTMLInputElement = hostElement.querySelector('input')!;
+    emailInput.value = expectedValue;
+    emailInput.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+  });
 });
