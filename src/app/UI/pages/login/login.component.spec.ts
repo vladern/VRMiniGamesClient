@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
 import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
 import { GraphQLModule } from 'src/app/graphql.module';
-import { CommonUIModule } from '../../common/common.module';
+import { CommonUIModule } from '../../common/common-ui.module';
 import { MaterialModule } from '../../material-module';
 import { LoginComponent } from './login.component';
 
