@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
-import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
-import { Observable } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
-import { map, shareReplay } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, shareReplay } from 'rxjs/operators';
+import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
+import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +29,12 @@ export class GraphQLLoginApiService extends LoginGateway {
           data: { email, password },
         },
       })
-      .valueChanges.pipe(shareReplay(1), map((response) => ({ ...response?.data?.login } as LoginResponse)));
+      .valueChanges.pipe(
+        shareReplay(1),
+        map((response) => ({ ...response?.data?.login } as LoginResponse)),
+        catchError(_err => {
+          return throwError(_err.graphQLErrors.map(err => ({message: err.message})));
+        })
+      );
   }
 }

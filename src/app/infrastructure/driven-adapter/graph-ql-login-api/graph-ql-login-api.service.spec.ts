@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import {
-  ApolloTestingModule,
-  ApolloTestingController,
+  ApolloTestingController, ApolloTestingModule
 } from 'apollo-angular/testing';
+import { GraphQLError } from 'graphql';
+import { ErrorResponse } from 'src/app/domain/models/error/error-response';
 import { GraphQLLoginApiService } from './graph-ql-login-api.service';
 
 describe('LiginApiService', () => {
@@ -43,6 +44,25 @@ describe('LiginApiService', () => {
           token: expectedToken
         }
       }
+    });
+  });
+
+  it('#login should return ErrorResponse with message "No user with that email"', (done: DoneFn) => {
+    const loginInput = {
+      email: 'test@example.com',
+      password: 'password',
+    };
+    const expectedErrorResponse = {  message: "No user with that email" };
+    service.login(loginInput.email, loginInput.password).subscribe((res)=>{}, (errors: ErrorResponse[]) => {
+      expect(errors).toEqual([expectedErrorResponse]);
+      done();
+    });
+    const op = controller.expectOne(service.loginQuery);
+    expect(op.operation.variables.data).toEqual(loginInput);
+    const graphqlErrors:  GraphQLError[] = [new GraphQLError(expectedErrorResponse.message)];
+    op.flush({
+      errors: graphqlErrors,
+      data: null,
     });
   });
 });
