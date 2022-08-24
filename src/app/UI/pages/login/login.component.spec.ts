@@ -65,10 +65,10 @@ describe('LoginComponent', () => {
       return this.query<HTMLButtonElement>('.qa-submit-button button');
     }
     get emailInput() {
-      return this.query<HTMLInputElement>('.qa-email-input');
+      return this.query<HTMLInputElement>('.qa-email-input input');
     }
     get passwordInput() {
-      return this.query<HTMLInputElement>('.qa-password-input');
+      return this.query<HTMLInputElement>('.qa-password-input  input');
     }
 
     submitSpy: jasmine.Spy;
@@ -98,9 +98,9 @@ describe('LoginComponent', () => {
       password: 'password',
     };
     page.emailInput.value = expectedLoginFormValue.email;
-    page.emailInput.dispatchEvent(new Event('input'));
+    page.emailInput.dispatchEvent(new Event('change'));
     page.passwordInput.value = expectedLoginFormValue.password;
-    page.passwordInput.dispatchEvent(new Event('input'));
+    page.passwordInput.dispatchEvent(new Event('change'));
     fixture.detectChanges();
     page.submitBtn.click();
     tick();
@@ -117,9 +117,9 @@ describe('LoginComponent', () => {
       password: 'password',
     };
     page.emailInput.value = expectedLoginFormValue.email;
-    page.emailInput.dispatchEvent(new Event('input'));
+    page.emailInput.dispatchEvent(new Event('change'));
     page.passwordInput.value = expectedLoginFormValue.password;
-    page.passwordInput.dispatchEvent(new Event('input'));
+    page.passwordInput.dispatchEvent(new Event('change'));
     fixture.detectChanges();
     page.submitBtn.click();
     tick();

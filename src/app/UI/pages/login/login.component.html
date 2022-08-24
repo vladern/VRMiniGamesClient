@@ -1,23 +1,21 @@
 <form class="form" [formGroup]="loginFormGroup" (ngSubmit)="submit(loginFormGroup.value)">
-  <mat-form-field class="full-width">
-    <mat-label>Email</mat-label>
-    <input
-      class="qa-email-input"
-      type="email"
-      matInput
-      formControlName="email"
-      placeholder="Ex. pat@example.com"
-    />
-  </mat-form-field>
-  <mat-form-field class="full-width" >
-    <mat-label>Password</mat-label>
-    <input
-      class="qa-password-input"
-      type="password"
-      matInput
-      formControlName="password"
-      placeholder="password"
-    />
-  </mat-form-field>
+  <vrmg-input
+    class="qa-email-input full-width"
+    type="email"
+    matInput
+    label="Email"
+    placeholder="Ex. pat@example.com"
+    [value]="loginFormGroup.controls.email.value"
+    (valueChange)="loginFormGroup.controls.email.setValue($event)"
+  ></vrmg-input>
+  <vrmg-input
+    class="qa-password-input full-width"
+    type="password"
+    matInput
+    label="Password"
+    placeholder="Ex. 0ThisIsAVeryStorngPassword0"
+    [value]="loginFormGroup.controls.password.value"
+    (valueChange)="loginFormGroup.controls.password.setValue($event)"
+  ></vrmg-input>
   <vrmg-button class="qa-submit-button" text="submit" type="submit"></vrmg-button>
 </form>
