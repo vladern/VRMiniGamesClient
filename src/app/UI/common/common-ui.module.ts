@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material-module';
 import { InputComponent } from './components/atoms/input/input.component';
 import * as components from './components/index';
@@ -10,6 +10,7 @@ import * as components from './components/index';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   exports: [...components.index],
