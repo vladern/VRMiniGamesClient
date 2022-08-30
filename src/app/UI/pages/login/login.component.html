@@ -17,5 +17,10 @@
     [value]="loginFormGroup.controls.password.value"
     (valueChange)="loginFormGroup.controls.password.setValue($event)"
   ></vrmg-input>
+  <ul class="qa-error-messages full-width" *ngIf="errors?.length">
+    <li class="remove-bullet" *ngFor="let error of errors">
+      <vrmg-error *ngIf="error" [message]="error.message"></vrmg-error>
+    </li>
+  </ul>
   <vrmg-button class="qa-submit-button" text="submit" type="submit"></vrmg-button>
 </form>

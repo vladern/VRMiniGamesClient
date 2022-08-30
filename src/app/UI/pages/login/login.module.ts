@@ -17,10 +17,10 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    MaterialModule,
-    FormsModule,
     RouterModule.forChild(routes),
+    MaterialModule,
     CommonUIModule,
+    FormsModule,
     ReactiveFormsModule,
   ]
 })

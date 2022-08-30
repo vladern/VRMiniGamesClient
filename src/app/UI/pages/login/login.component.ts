@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormControl,
   FormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { ErrorResponse } from 'src/app/domain/models/error/error-response';
 import { LoginUseCase } from 'src/app/domain/use-cases/login.use-case';
 
 
@@ -14,9 +16,9 @@ import { LoginUseCase } from 'src/app/domain/use-cases/login.use-case';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
+  public errors: ErrorResponse[] = [];
   public loginFormGroup: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.email]),
+    email: new FormControl('', [Validators.email, Validators.nullValidator]),
     password: new FormControl('', [Validators.nullValidator])
   });
 
@@ -31,9 +33,8 @@ export class LoginComponent {
       const tokent = res.token;
       this.gotoHome();
     },
-    (error) => {
-      // TODO: manage errors like wrong password
-      console.error(error);
+    (errors: ErrorResponse[]) => {
+      this.errors = errors;
     });
   }
 

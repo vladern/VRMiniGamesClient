@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ErrorResponse } from 'src/app/domain/models/error/error-response';
 import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
 import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
 import { GraphQLModule } from 'src/app/graphql.module';
@@ -21,9 +22,17 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let page: LoginPage;
+  const validEmail = 'test@example.com';
+  const validPassword = 'password';
   const loginUseCaseMock = {
-    login: () =>
-      new Observable<LoginResponse>((r) => r.next({ token: 'aaaaa' })),
+    login: (email: string, password: string) => {
+      if (email === validEmail && password === validPassword) {
+        return new Observable<LoginResponse>((r) => r.next({ token: 'aaaaa' }));
+      }
+      return new Observable<ErrorResponse[]>((r) =>
+        r.error([{ message: 'Email or password are not valid' }])
+      );
+    },
   };
   const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
@@ -71,6 +80,10 @@ describe('LoginComponent', () => {
       return this.query<HTMLInputElement>('.qa-password-input  input');
     }
 
+    get errorMessages() {
+      return this.query<HTMLElement>('.qa-error-messages');
+    }
+
     submitSpy: jasmine.Spy;
     loginUseCaseSpy: jasmine.Spy;
     routerSpy = routerSpy;
@@ -94,8 +107,8 @@ describe('LoginComponent', () => {
 
   it('As user I want to login with my email and password data', fakeAsync(() => {
     const expectedLoginFormValue = {
-      email: 'test@example.com',
-      password: 'password',
+      email: validEmail,
+      password: validPassword,
     };
     page.emailInput.value = expectedLoginFormValue.email;
     page.emailInput.dispatchEvent(new Event('change'));
@@ -113,8 +126,8 @@ describe('LoginComponent', () => {
 
   it('As user I want to be redirected to home page if my login credentials are valid', fakeAsync(() => {
     const expectedLoginFormValue = {
-      email: 'test@example.com',
-      password: 'password',
+      email: validEmail,
+      password: validPassword,
     };
     page.emailInput.value = expectedLoginFormValue.email;
     page.emailInput.dispatchEvent(new Event('change'));
@@ -126,5 +139,27 @@ describe('LoginComponent', () => {
     const spy = routerSpy.navigateByUrl as jasmine.Spy;
     const navArgs = spy.calls.first().args[0];
     expect(navArgs).withContext('should nav to home page').toBe('/home');
+  }));
+
+  it('As user I want to be notified if my email or password are wrong', fakeAsync(() => {
+    const notValidEmail = 'error@test.com';
+    const notValidPassword = 'error';
+    const expectedLoginFormValue = {
+      email: notValidEmail,
+      password: notValidPassword,
+    };
+    page.emailInput.value = expectedLoginFormValue.email;
+    page.emailInput.dispatchEvent(new Event('change'));
+    page.passwordInput.value = expectedLoginFormValue.password;
+    page.passwordInput.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+    page.submitBtn.click();
+    tick();
+    fixture.detectChanges();
+    expect(page.loginUseCaseSpy).toHaveBeenCalledOnceWith(
+      expectedLoginFormValue.email,
+      expectedLoginFormValue.password
+    );
+    expect(page.errorMessages.textContent).toEqual('Email or password are not valid');
   }));
 });
