@@ -16,7 +16,7 @@ Create a portfolio that demonstrates my technical capabilities.
  ### Architecture
  - [DDD (Clean Architecture)](https://www.youtube.com/watch?v=g5z_8ecIic0&list=PL6PxPH2IZvJre4df2MIIiwJ3zFYffis7i)
  
- - [Atomic Design](https://medium.com/weekly-webtips/angular-clean-arquitecture-d40e9c50f51)
+ - [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/)
  
  - [TDD](https://dev.to/qarunqb/tdd-in-angular-the-basics-of-general-testing-2bfb)
  
