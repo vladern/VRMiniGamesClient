@@ -1,7 +1,5 @@
 <form class="form" [formGroup]="loginFormGroup" (ngSubmit)="submit(loginFormGroup.value)">
-  <mat-card>
-    <mat-card-title color="primary">Login</mat-card-title>
-    <mat-card-content>
+  <vrmg-card title="LOGIN">
       <vrmg-input
         class="qa-email-input full-width"
         type="email"
@@ -26,6 +24,5 @@
         </li>
       </ul>
       <vrmg-button class="qa-submit-button" text="LOGIN" type="submit"></vrmg-button>
-    </mat-card-content>
-  </mat-card>
+  </vrmg-card>
 </form>
