@@ -1,17 +1,34 @@
-@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
 
-@include mat.core;
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-primary: mat-palette($mat-blue);
+$app-accent:  mat-palette($mat-orange);
+$app-warn:    mat-palette($mat-red);
+$app-success: mat-palette($mat-light-green);
 
-$my-primary: mat.define-palette(mat.$indigo-palette, 500);
-$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$my-theme: mat.define-light-theme((
- color: (
-   primary: $my-primary,
-   accent: $my-accent,
- )
-));
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
-@include mat.all-component-themes($my-theme);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
+
+$primary: map-get($app-theme, primary);
+$accent: map-get($app-theme, accent);
+
+:root {
+  --color-primary: #{mat-color($app-primary)};
+  --color-accent: #{mat-color($app-accent)};
+  --color-warn: #{mat-color($app-warn)};
+  --color-success: #{mat-color($app-success)};
+}
 
 html,
 body {
