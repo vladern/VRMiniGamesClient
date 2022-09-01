@@ -47,6 +47,6 @@ describe('ButtonComponent', () => {
     const buttonElement = buttonDebugElement.nativeElement;
     component.type = "submit";
     fixture.detectChanges();
-    expect(buttonElement.attributes[3].nodeValue).toBe("submit");
+    expect(buttonElement.attributes.getNamedItem('type').nodeValue).toBe("submit");
   });
 });
