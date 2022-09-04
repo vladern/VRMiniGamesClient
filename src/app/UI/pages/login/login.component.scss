@@ -14,4 +14,18 @@
   .remove-bullet {
     list-style-type: none;
   }
+
+  .form {
+    padding: 1rem;
+    .title {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      h1 {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
 }

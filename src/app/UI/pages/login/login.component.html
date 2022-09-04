@@ -1,5 +1,9 @@
 <form class="form" [formGroup]="loginFormGroup" (ngSubmit)="submit(loginFormGroup.value)">
-  <vrmg-card title="LOGIN">
+  <vrmg-card>
+      <div class="title">
+        <mat-icon class="qa-button-icon" color="primary" style="font-size: 8rem; width: auto; height: auto">account_circle</mat-icon>
+        <h1>Sign In</h1>
+      </div>
       <vrmg-input
         class="qa-email-input full-width"
         type="email"
