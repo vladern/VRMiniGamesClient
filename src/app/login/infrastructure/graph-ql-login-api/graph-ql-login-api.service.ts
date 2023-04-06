@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
-import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
-import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
+import { LoginGateway } from 'src/app/login/domain/gateway/login.gateway';
+import { LoginResponse } from 'src/app/login/domain/login-response.model';
 
 @Injectable({
   providedIn: 'root',

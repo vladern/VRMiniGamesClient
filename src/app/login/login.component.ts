@@ -6,8 +6,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { ErrorResponse } from 'src/app/domain/models/error/error-response';
-import { LoginUseCase } from 'src/app/domain/use-cases/login.use-case';
+import { ErrorResponse } from 'src/app/shared/domain/error/error-response';
+import { LoginUseCase } from 'src/app/login/application/login.use-case';
 
 
 @Component({

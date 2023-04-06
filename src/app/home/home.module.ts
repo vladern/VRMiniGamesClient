@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '../../material-module';
-import { CommonUIModule } from '../../common/common-ui.module';
+import { CommonUIModule } from '../shared/common-ui.module';
+import { MaterialModule } from '../shared/material-module';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

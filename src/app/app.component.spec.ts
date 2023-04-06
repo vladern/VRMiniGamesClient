@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { LoginGateway } from './domain/models/login/gateway/login.gateway';
-import { GraphQLLoginApiService } from './infrastructure/driven-adapter/graph-ql-login-api/graph-ql-login-api.service';
+import { LoginGateway } from './login/domain/gateway/login.gateway';
+import { GraphQLLoginApiService } from './login/infrastructure/graph-ql-login-api/graph-ql-login-api.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {

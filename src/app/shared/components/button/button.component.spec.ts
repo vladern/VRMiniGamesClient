@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from 'src/app/UI/material-module';
+import { MaterialModule } from 'src/app/shared/material-module';
 
 import { ButtonComponent } from './button.component';
 

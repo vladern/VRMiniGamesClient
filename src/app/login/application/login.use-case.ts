@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginResponse } from '../models/login/login-response.model';
-import { LoginGateway } from '../models/login/gateway/login.gateway';
+import { LoginResponse } from '../domain/login-response.model';
+import { LoginGateway } from '../domain/gateway/login.gateway';
 
 @Injectable({
   providedIn: 'root'

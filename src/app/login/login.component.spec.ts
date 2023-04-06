@@ -10,13 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ErrorResponse } from 'src/app/domain/models/error/error-response';
-import { LoginGateway } from 'src/app/domain/models/login/gateway/login.gateway';
-import { LoginResponse } from 'src/app/domain/models/login/login-response.model';
+import { ErrorResponse } from 'src/app/shared/domain/error/error-response';
+import { LoginGateway } from 'src/app/login/domain/gateway/login.gateway';
+import { LoginResponse } from 'src/app/login/domain/login-response.model';
 import { GraphQLModule } from 'src/app/graphql.module';
-import { CommonUIModule } from '../../common/common-ui.module';
-import { MaterialModule } from '../../material-module';
 import { LoginComponent } from './login.component';
+import { MaterialModule } from '../shared/material-module';
+import { CommonUIModule } from '../shared/common-ui.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
