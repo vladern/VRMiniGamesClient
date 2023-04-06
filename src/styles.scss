@@ -7,7 +7,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$app-primary: mat-palette($mat-blue);
+$app-primary: mat-palette($mat-cyan);
 $app-accent:  mat-palette($mat-orange);
 $app-warn:    mat-palette($mat-red);
 $app-success: mat-palette($mat-light-green);
@@ -24,7 +24,7 @@ $primary: map-get($app-theme, primary);
 $accent: map-get($app-theme, accent);
 
 :root {
-  --color-primary: #{mat-color($app-primary)};
+  --color-primary: #008f9f;
   --color-accent: #{mat-color($app-accent)};
   --color-warn: #{mat-color($app-warn)};
   --color-success: #{mat-color($app-success)};
@@ -40,4 +40,5 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-size: x-large;
 }

@@ -1,32 +1,34 @@
 <form class="form" [formGroup]="loginFormGroup" (ngSubmit)="submit(loginFormGroup.value)">
-  <vrmg-card>
+  <vrmg-card class="card">
       <div class="title">
         <img src="../../assets/login-user-image.jfif" class="account">
         <h1>Sign In</h1>
       </div>
-      <vrmg-input
-        class="qa-email-input full-width"
-        type="email"
-        matInput
-        label="Email"
-        placeholder="Ex. pat@example.com"
-        [value]="loginFormGroup.controls.email.value"
-        (valueChange)="loginFormGroup.controls.email.setValue($event)"
-      ></vrmg-input>
-      <vrmg-input
-        class="qa-password-input full-width"
-        type="password"
-        matInput
-        label="Password"
-        placeholder="Ex. 0ThisIsAVeryStorngPassword0"
-        [value]="loginFormGroup.controls.password.value"
-        (valueChange)="loginFormGroup.controls.password.setValue($event)"
-      ></vrmg-input>
-      <ul class="qa-error-messages full-width" *ngIf="errors?.length">
-        <li class="remove-bullet" *ngFor="let error of errors">
-          <vrmg-error *ngIf="error" [message]="error.message"></vrmg-error>
-        </li>
-      </ul>
-      <vrmg-button class="qa-submit-button" text="LOGIN" type="submit"></vrmg-button>
+      <section class="body">
+        <vrmg-input
+          class="qa-email-input full-width"
+          type="email"
+          matInput
+          label="Email"
+          placeholder="Ex. pat@example.com"
+          [value]="loginFormGroup.controls.email.value"
+          (valueChange)="loginFormGroup.controls.email.setValue($event)"
+        ></vrmg-input>
+        <vrmg-input
+          class="qa-password-input full-width"
+          type="password"
+          matInput
+          label="Password"
+          placeholder="Ex. 0ThisIsAVeryStorngPassword0"
+          [value]="loginFormGroup.controls.password.value"
+          (valueChange)="loginFormGroup.controls.password.setValue($event)"
+        ></vrmg-input>
+        <ul class="qa-error-messages full-width" *ngIf="errors?.length">
+          <li class="remove-bullet" *ngFor="let error of errors">
+            <vrmg-error *ngIf="error" [message]="error.message"></vrmg-error>
+          </li>
+        </ul>
+        <vrmg-button class="qa-submit-button" text="LOGIN" type="submit"></vrmg-button>
+      </section>
   </vrmg-card>
 </form>

@@ -24,14 +24,20 @@
 
   .form {
     padding: 1rem;
+    .card {
+      max-width: 30rem;
+      min-width: 10rem;
+      width: 100%;
+    }
     .title {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      text-align: center;
       h1 {
         width: 100%;
         text-align: center;
       }
+    }
+    .body {
+      padding: 2rem;
     }
   }
 
