@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ErrorResponse } from 'src/app/shared/domain/error/error-response';
+import { ErrorResponse } from 'src/app/shared/error/domain/error-response';
 import { LoginGateway } from 'src/app/login/domain/gateway/login.gateway';
 import { LoginResponse } from 'src/app/login/domain/login-response.model';
 import { GraphQLModule } from 'src/app/graphql.module';

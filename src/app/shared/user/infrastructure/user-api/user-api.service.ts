@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserGateway } from 'src/app/shared/domain/user/geteway/user.gateway';
-import { User } from 'src/app/shared/domain/user/user.model';
+import { UserGateway } from '../../domain/geteway/user.gateway';
+import { User } from '../../domain/user.model';
 
 @Injectable({
   providedIn: 'root'

@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { ErrorResponse } from 'src/app/shared/domain/error/error-response';
+import { ErrorResponse } from 'src/app/shared/error/domain/error-response';
 import { LoginUseCase } from 'src/app/login/application/login.use-case';
 
 

@@ -3,7 +3,7 @@ import {
   ApolloTestingController, ApolloTestingModule
 } from 'apollo-angular/testing';
 import { GraphQLError } from 'graphql';
-import { ErrorResponse } from 'src/app/shared/domain/error/error-response';
+import { ErrorResponse } from 'src/app/shared/error/domain/error-response';
 import { GraphQLLoginApiService } from './graph-ql-login-api.service';
 
 describe('LiginApiService', () => {
