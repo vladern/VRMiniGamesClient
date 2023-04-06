@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,9 +17,9 @@ import { LoginUseCase } from 'src/app/login/application/login.use-case';
 })
 export class LoginComponent {
   public errors: ErrorResponse[] = [];
-  public loginFormGroup: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.email, Validators.nullValidator]),
-    password: new FormControl('', [Validators.nullValidator])
+  public loginFormGroup: UntypedFormGroup = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.email, Validators.nullValidator]),
+    password: new UntypedFormControl('', [Validators.nullValidator])
   });
 
   constructor(

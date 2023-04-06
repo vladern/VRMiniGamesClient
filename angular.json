@@ -122,8 +122,10 @@
       }
     }
   },
-  "defaultProject": "vr-mini-games-client",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
+    "analytics": "54bc96b1-b2ff-4280-9ba2-bc8dc3738514"
   }
 }
