@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "test:coverage": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
-    "lint": "ng lint",
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "test:coverage": "nx test --browsers=ChromeHeadless --watch=false --code-coverage",
+    "lint": "nx lint",
     "stylelint": "npx stylelint \"**/*.scss\"",
-    "e2e": "ng e2e"
+    "e2e": "nx e2e"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +33,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.11",
+    "@angular-devkit/core": "^14.2.11",
+    "@angular-devkit/schematics": "^14.2.11",
     "@angular-eslint/builder": "14.4.0",
     "@angular-eslint/eslint-plugin": "14.4.0",
     "@angular-eslint/eslint-plugin-template": "14.4.0",
@@ -40,6 +42,10 @@
     "@angular-eslint/template-parser": "14.4.0",
     "@angular/cli": "^14.2.11",
     "@angular/compiler-cli": "^14.3.0",
+    "@nrwl/angular": "15.9.2",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/workspace": "15.9.2",
+    "@schematics/angular": "^14.2.11",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.27.1",
@@ -52,6 +58,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "nx": "15.9.2",
     "protractor": "~7.0.0",
     "stylelint": "^14.10.0",
     "stylelint-config-prettier-scss": "^0.0.1",
