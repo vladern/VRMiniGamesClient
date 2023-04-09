@@ -17,6 +17,7 @@ import { GraphQLModule } from 'src/app/graphql.module';
 import { LoginComponent } from './login.component';
 import { MaterialModule } from '../shared/material-module';
 import { CommonUIModule } from '../shared/common-ui.module';
+import { ButtonComponent } from '../shared/components/button/button.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -47,6 +48,7 @@ describe('LoginComponent', () => {
         BrowserAnimationsModule,
         GraphQLModule,
         HttpClientModule,
+        ButtonComponent
       ],
       declarations: [LoginComponent],
       providers: [

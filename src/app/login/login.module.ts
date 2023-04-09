@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material-module';
 import { CommonUIModule } from '../shared/common-ui.module';
+import { ButtonComponent } from '../shared/components/button/button.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
     CommonUIModule,
     FormsModule,
     ReactiveFormsModule,
+    ButtonComponent
   ]
 })
 export class LoginModule { }

@@ -3,6 +3,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonUIModule } from '../shared/common-ui.module';
 import { MaterialModule } from '../shared/material-module';
+import { ButtonComponent } from '../shared/components/button/button.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   imports: [
     CommonUIModule,
     MaterialModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ButtonComponent
   ],
   declarations: [HomeComponent]
 })
