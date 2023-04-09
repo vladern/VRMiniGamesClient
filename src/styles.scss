@@ -26,7 +26,7 @@ $primary: map-get($app-theme, primary);
 $accent: map-get($app-theme, accent);
 
 :root {
-  --color-primary: #008f9f;
+  --color-primary: #{mat-color($app-primary)};
   --color-accent: #{mat-color($app-accent)};
   --color-warn: #{mat-color($app-warn)};
   --color-success: #{mat-color($app-success)};
@@ -42,5 +42,4 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-size: x-large;
 }
