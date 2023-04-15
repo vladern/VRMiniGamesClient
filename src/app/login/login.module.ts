@@ -4,10 +4,7 @@ import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material-module';
-import { CommonUIModule } from '../shared/common-ui.module';
-import { ButtonComponent } from '../shared/components/button/button.component';
-import { InputComponent } from '../shared/components/input/input.component';
-import { CardComponent } from '../shared/components/card/card.component';
+import { ButtonComponent, CardComponent, ErrorComponent, InputComponent } from '../shared/components';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,12 +19,12 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MaterialModule,
-    CommonUIModule,
     FormsModule,
     ReactiveFormsModule,
     ButtonComponent,
     InputComponent,
-    CardComponent
+    CardComponent,
+    ErrorComponent
   ]
 })
 export class LoginModule { }

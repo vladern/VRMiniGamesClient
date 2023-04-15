@@ -16,9 +16,9 @@ import { LoginResponse } from 'src/app/login/domain/login-response.model';
 import { GraphQLModule } from 'src/app/graphql.module';
 import { LoginComponent } from './login.component';
 import { MaterialModule } from '../shared/material-module';
-import { CommonUIModule } from '../shared/common-ui.module';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { InputComponent } from '../shared/components/input/input.component';
+import { ErrorComponent } from '../shared/components/error/error.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -44,13 +44,13 @@ describe('LoginComponent', () => {
         CommonModule,
         MaterialModule,
         FormsModule,
-        CommonUIModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         GraphQLModule,
         HttpClientModule,
         ButtonComponent,
         InputComponent,
+        ErrorComponent
       ],
       declarations: [LoginComponent],
       providers: [

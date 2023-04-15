@@ -1,5 +1,4 @@
-import { ErrorComponent } from './error/error.component';
-
-export const index = [
-  ErrorComponent
-];
+export * from './button/button.component';
+export * from './error/error.component';
+export * from './input/input.component';
+export * from './card/card.component';

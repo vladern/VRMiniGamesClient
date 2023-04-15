@@ -9,8 +9,7 @@ describe('ErrorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorComponent ],
-      imports: [ MaterialModule ]
+      imports: [ MaterialModule, ErrorComponent ]
     })
     .compileComponents();
   }));
