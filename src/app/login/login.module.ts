@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material-module';
 import { CommonUIModule } from '../shared/common-ui.module';
 import { ButtonComponent } from '../shared/components/button/button.component';
+import { InputComponent } from '../shared/components/input/input.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
     CommonUIModule,
     FormsModule,
     ReactiveFormsModule,
-    ButtonComponent
+    ButtonComponent,
+    InputComponent
   ]
 })
 export class LoginModule { }

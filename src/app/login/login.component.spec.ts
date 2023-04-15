@@ -18,6 +18,7 @@ import { LoginComponent } from './login.component';
 import { MaterialModule } from '../shared/material-module';
 import { CommonUIModule } from '../shared/common-ui.module';
 import { ButtonComponent } from '../shared/components/button/button.component';
+import { InputComponent } from '../shared/components/input/input.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -48,7 +49,8 @@ describe('LoginComponent', () => {
         BrowserAnimationsModule,
         GraphQLModule,
         HttpClientModule,
-        ButtonComponent
+        ButtonComponent,
+        InputComponent,
       ],
       declarations: [LoginComponent],
       providers: [

@@ -12,8 +12,7 @@ describe('InputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputComponent ],
-      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule]
+      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule, InputComponent]
     })
     .compileComponents();
   });

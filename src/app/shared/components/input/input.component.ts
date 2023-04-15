@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MaterialModule } from '../../material-module';
 
 @Component({
   selector: 'vrmg-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MaterialModule]
 })
 export class InputComponent {
   @Input() label: string;

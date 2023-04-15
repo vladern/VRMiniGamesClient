@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material-module';
 import * as components from './components/index';
-import { InputComponent } from 'src/app/shared/components/input/input.component';
 
 @NgModule({
-  declarations: [...components.index, InputComponent],
+  declarations: [...components.index],
   imports: [
     CommonModule,
     MaterialModule,
