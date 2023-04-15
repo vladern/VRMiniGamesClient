@@ -16,8 +16,8 @@ describe('CardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardComponent, TestHostComponent ],
-      imports: [ MaterialModule ]
+      declarations: [ TestHostComponent ],
+      imports: [ MaterialModule, CardComponent ]
     })
     .compileComponents();
   }));

@@ -7,6 +7,7 @@ import { MaterialModule } from '../shared/material-module';
 import { CommonUIModule } from '../shared/common-ui.module';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { InputComponent } from '../shared/components/input/input.component';
+import { CardComponent } from '../shared/components/card/card.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     ButtonComponent,
-    InputComponent
+    InputComponent,
+    CardComponent
   ]
 })
 export class LoginModule { }
