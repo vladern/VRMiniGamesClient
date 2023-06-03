@@ -3,9 +3,7 @@ import { Observable } from 'rxjs';
 import { LoginResponse } from '../domain/login-response.model';
 import { LoginGateway } from '../domain/gateway/login.gateway';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoginUseCase {
   constructor(private loginGateWay: LoginGateway) { }
 

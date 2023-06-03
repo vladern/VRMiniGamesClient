@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
-import { LoginGateway } from 'src/app/login/domain/gateway/login.gateway';
-import { LoginResponse } from 'src/app/login/domain/login-response.model';
+import { LoginGateway } from '../../domain/gateway/login.gateway';
+import { LoginResponse } from '../../domain/login-response.model';
+import { LoginModule } from '../../login.module';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class GraphQLLoginApiService extends LoginGateway {
   public loginQuery = gql`
     query login($data: LoginInput!) {

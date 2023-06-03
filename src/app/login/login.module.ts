@@ -5,6 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material-module';
 import { ButtonComponent, CardComponent, ErrorComponent, InputComponent } from '../shared/components';
+import { LoginGateway } from './domain/gateway/login.gateway';
+import { GraphQLLoginApiService } from './infrastructure/graph-ql-login-api/graph-ql-login-api.service';
+import { LoginUseCase } from './application/login.use-case';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -25,6 +28,10 @@ const routes: Routes = [
     InputComponent,
     CardComponent,
     ErrorComponent
-  ]
+  ],
+  providers: [
+    { provide: LoginGateway, useClass: GraphQLLoginApiService},
+    LoginUseCase,
+  ],
 })
 export class LoginModule { }

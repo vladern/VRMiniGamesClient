@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginGateway } from './login/domain/gateway/login.gateway';
 import { BrowserModule } from '@angular/platform-browser';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { GraphQLLoginApiService } from './login/infrastructure/graph-ql-login-api/graph-ql-login-api.service';
 import { HomeModule } from './home/home.module';
 
 const routes: Routes = [
@@ -34,7 +32,6 @@ const routes: Routes = [
     GraphQLModule,
     HttpClientModule
   ],
-  providers: [{ provide: LoginGateway, useClass: GraphQLLoginApiService}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

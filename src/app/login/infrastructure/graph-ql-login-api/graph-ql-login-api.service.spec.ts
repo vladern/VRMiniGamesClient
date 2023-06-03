@@ -13,6 +13,7 @@ describe('LiginApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ApolloTestingModule],
+      providers: [GraphQLLoginApiService]
     });
     service = TestBed.inject(GraphQLLoginApiService);
     controller = TestBed.inject(ApolloTestingController);

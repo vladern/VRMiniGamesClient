@@ -19,6 +19,7 @@ import { MaterialModule } from '../shared/material-module';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { InputComponent } from '../shared/components/input/input.component';
 import { ErrorComponent } from '../shared/components/error/error.component';
+import { LoginUseCase } from './application/login.use-case';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -56,6 +57,7 @@ describe('LoginComponent', () => {
       providers: [
         { provide: LoginGateway, useValue: loginUseCaseMock },
         { provide: Router, useValue: routerSpy },
+        LoginUseCase,
       ],
     }).compileComponents();
   });
