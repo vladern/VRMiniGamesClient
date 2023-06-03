@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { MaterialModule } from '../../material-module';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'vrmg-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   standalone: true,
-  imports: [CommonModule, MaterialModule]
+  imports: [CommonModule, MatCardModule]
 })
 export class CardComponent {
   @Input() title: string;

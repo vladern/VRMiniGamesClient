@@ -1,8 +1,6 @@
 import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
-import { MaterialModule } from 'src/app/shared/material-module';
 import { CardComponent } from './card.component';
 
 @Component({
@@ -17,7 +15,7 @@ describe('CardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TestHostComponent ],
-      imports: [ MaterialModule, CardComponent ]
+      imports: [CardComponent ]
     })
     .compileComponents();
   }));

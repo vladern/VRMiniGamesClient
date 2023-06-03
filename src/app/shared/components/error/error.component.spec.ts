@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from 'src/app/shared/material-module';
 import { ErrorComponent } from './error.component';
 
 describe('ErrorComponent', () => {
@@ -9,7 +8,7 @@ describe('ErrorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ MaterialModule, ErrorComponent ]
+      imports: [ ErrorComponent ]
     })
     .compileComponents();
   }));

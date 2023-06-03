@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from 'src/app/shared/material-module';
 
 import { InputComponent } from './input.component';
 
@@ -12,7 +11,7 @@ describe('InputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule, InputComponent]
+      imports: [ReactiveFormsModule, BrowserAnimationsModule, InputComponent]
     })
     .compileComponents();
   });

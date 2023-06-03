@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MaterialModule } from 'src/app/shared/material-module';
 
 import { ButtonComponent } from './button.component';
 
@@ -11,7 +10,7 @@ describe('ButtonComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [],
-      imports:[MaterialModule, ButtonComponent]
+      imports:[ButtonComponent]
     })
     .compileComponents();
   });
