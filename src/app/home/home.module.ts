@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '../shared/material-module';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ButtonComponent } from '../shared/components/button/button.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' }
+  { path: '', component: HomeComponent },
+  { path: '',   redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
-    MaterialModule,
-    RouterModule.forRoot(routes),
-    ButtonComponent
+    RouterModule.forChild(routes),
+    ButtonComponent,
+    MatToolbarModule,
+    MatSidenavModule,
   ],
   declarations: [HomeComponent]
 })

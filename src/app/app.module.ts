@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeModule } from './home/home.module';
 
 const routes: Routes = [
   {
@@ -25,10 +24,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    HomeModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forChild(routes),
+    RouterModule.forRoot(routes),
     GraphQLModule,
     HttpClientModule
   ],

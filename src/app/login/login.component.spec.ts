@@ -15,11 +15,11 @@ import { LoginGateway } from 'src/app/login/domain/gateway/login.gateway';
 import { LoginResponse } from 'src/app/login/domain/login-response.model';
 import { GraphQLModule } from 'src/app/graphql.module';
 import { LoginComponent } from './login.component';
-import { MaterialModule } from '../shared/material-module';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { InputComponent } from '../shared/components/input/input.component';
 import { ErrorComponent } from '../shared/components/error/error.component';
 import { LoginUseCase } from './application/login.use-case';
+import { CardComponent } from '../shared/components';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -43,7 +43,6 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         CommonModule,
-        MaterialModule,
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
@@ -51,6 +50,7 @@ describe('LoginComponent', () => {
         HttpClientModule,
         ButtonComponent,
         InputComponent,
+        CardComponent,
         ErrorComponent
       ],
       declarations: [LoginComponent],
