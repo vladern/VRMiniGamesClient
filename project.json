@@ -7,7 +7,7 @@
   "prefix": "vrmg",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:browser-esbuild",
       "options": {
         "outputPath": "dist/vr-mini-games-client",
         "index": "src/index.html",
