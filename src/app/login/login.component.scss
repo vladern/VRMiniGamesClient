@@ -26,8 +26,9 @@
     padding: 1rem;
 
     .card {
-      max-width: 20rem;
-      min-width: 10rem;
+      display: flex;
+      max-width: 30rem;
+      min-width: 15rem;
       width: 100%;
     }
 
