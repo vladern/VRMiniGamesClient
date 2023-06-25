@@ -1,7 +1,45 @@
 :host {
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    'header'
+    'main'
+    'footer';
   width: 100%;
   height: 100%;
   background-image: url('../../assets/home-background.jpg');
   background-size: cover;
+
+  .header {
+    grid-area: header;
+  }
+
+  .main {
+    padding: 1rem;
+    overflow: scroll;
+    grid-area: main;
+    --auto-grid-min-size: 20rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 1rem;
+
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--auto-grid-min-size);
+      height: var(--auto-grid-min-size);
+      background: rgb(164 196 235 / 62%);
+      border-radius: .5rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+      border: 1px solid rgb(255 255 255 / 29%);
+    }
+  }
+
+  .footer {
+    grid-area: footer;
+  }
 }
