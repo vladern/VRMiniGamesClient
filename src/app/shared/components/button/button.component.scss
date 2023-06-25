@@ -1,16 +1,11 @@
 :host {
   button {
     width: 100%;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 1rem;
-    box-shadow: 1.6px 1.6px 1.2px rgba(0, 0, 0, 0.011),
-      3.4px 3.4px 2.7px rgba(0, 0, 0, 0.016),
-      5.8px 5.8px 4.6px rgba(0, 0, 0, 0.019),
-      8.7px 8.7px 6.9px rgba(0, 0, 0, 0.022),
-      12.5px 12.5px 10px rgba(0, 0, 0, 0.025),
-      17.7px 17.7px 14.2px rgba(0, 0, 0, 0.028),
-      25.1px 25.1px 20.1px rgba(0, 0, 0, 0.031),
-      36.5px 36.5px 29.2px rgba(0, 0, 0, 0.034),
-      56.3px 56.3px 45px rgba(0, 0, 0, 0.039),
-      100px 100px 80px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
   }
 }
