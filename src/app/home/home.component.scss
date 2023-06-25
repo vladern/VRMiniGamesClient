@@ -1,25 +1,7 @@
-.spacer {
-  flex: 1 1 auto;
-}
-
-.container {
+:host {
+  display: grid;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(0 0 0);
-}
-
-.sidenav-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.sidenav {
-  padding: 20px;
-}
-
-.font {
-  padding-left: 0.2em;
-  font-weight: 600;
+  background-image: url('../../assets/home-background.jpg');
+  background-size: cover;
 }
